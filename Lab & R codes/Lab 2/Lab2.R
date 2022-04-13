@@ -29,6 +29,7 @@ boundaries <-seq(-5, 5, by=0.5)
 boundaries <-seq(0, 1, by=0.25)
 boundaries <-seq(0, 1, by=0.3) # One will not be included in this output
 
+
 xcut <- cut(x,breaks=boundaries, right=FALSE)
 
 ft <- table(xcut)
