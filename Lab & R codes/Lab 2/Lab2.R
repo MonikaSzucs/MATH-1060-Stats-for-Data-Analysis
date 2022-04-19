@@ -1,54 +1,51 @@
-beaver <- read.csv("C:/Users/mszuc/Desktop/MATH-1060-Stats-for-Data-Analysis/Lab & R codes/Lab 2/beaver.csv")
-# Extract the values from the "temp" (Body temperature of beaver)
-x <- beaver$temp
+# Lab 2 Cumulative distribution by Monika Szucs A00878763
 
-# Range will give you the minimum and maximum values
+# 1 and 2 Importing the file 
+beaver <- read.csv("C:/Users/mszuc/Desktop/MATH-1060-Stats-for-Data-Analysis/Lab & R codes/Lab 2/beaver.csv")
+
+# 16 Generating random numbers
+x = rnorm(1000)
+
+# 3 grabbing a range
 r <- range(x)
 
-# Giving the minimum data value using [1] and the value 1
+# 4 Grabbing the low and upper bounds of the histogram
 xmin <- round(r[1],1)-0.1
-# Giving the maximum data value using [2] and the value 1
-xmax <- round(r[2],1)+0.1
+xmax <- round(r[2],1)+0.1 
 
-# Giving the minimum data value using [1] and the value 0
-xmin <- round(r[1],0)-0.1
-# Giving the maximum data value using [2] and the value 0
-xmax <- round(r[2],0)+0.1
+# 5 number of classes
+#N <- 10
+# 15 changing the values of N
+#N <- 50
+#N <- 100
+# 17 creating a smooth curve
+N <- 1000
 
+# 6 defining class width
+step <- (xmax - xmin) / N
 
-# Giving the minimum data value using [1] and the value 2
-xmin <- round(r[1],2)-0.1
-# Giving the maximum data value using [2] and the value 2
-xmax <- round(r[2],2)+0.1
+# 7 Computing values of class boundaries
+boundaries <- seq(xmin, xmax, by=step)
 
-N <- 10
-step <-(xmax-xmin/N)
+# 8 Telling you which class each element belongs to
+xcut <- cut(x, breaks=boundaries, right=FALSE) 
 
-boundaries <-seq(xmin, xmax, by=step)
-boundaries <-seq(-5, 5, by=0.5)
-boundaries <-seq(0, 1, by=0.25)
-boundaries <-seq(0, 1, by=0.3) # One will not be included in this output
-
-
-xcut <- cut(x,breaks=boundaries, right=FALSE)
-
+# 9 Compiles the freqeuncy table then displays it
 ft <- table(xcut)
 plot(ft, type='h')
 
+# 10 calculate the profitability
 total = sum(ft)
 
+# 11 Solving the quadratic equation
 cube <- function(x){x^3}
-# cube(3)  then the answer is 27
 
-#i = 10
-#prob <- function(i){sum(ft[1:i])/total}
+# 12 probability of randomely picked data point
+prob <- function(i) { sum(ft [1:i]) / total }
 
+# 13 Substitute Numbers
 cp <- sapply(1:N, prob)
 
-plot(boundaries[2:(N+1)], 
-     cp, 
-     type="1",
-     main="Cumulative Probablity: P(X<r)",
-     xlab="x",
-     ylab="Probability")
+# 14
+plot(boundaries[2:(N+1)], cp, type="l", main="Cumulative Probability: P(X < x)", xlab="x", ylab="Probability")
 
