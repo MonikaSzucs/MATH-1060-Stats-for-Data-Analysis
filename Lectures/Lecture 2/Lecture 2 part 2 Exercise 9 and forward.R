@@ -65,8 +65,8 @@ boxplot(w)
 # boxplot(x, horizontal = TRUE)
 
 # What are the outliers for Rape? Alaska and Nevada
-# boxplot(USArrests$Rape, horizontal =TRUE)
-# x=USArrests$Rape
+#boxplot(USArrests$Rape, horizontal =TRUE)
+#x=USArrests$Rape
 # sort(x)
 # View(USArrests)
 

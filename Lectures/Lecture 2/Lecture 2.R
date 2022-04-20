@@ -19,4 +19,5 @@ x=USArrests$Rape
 # write in the console log  (7.9 - mean(USArrests$Murder))/sd(USArrests$Murder)
 z = (7.9 - mean(USArrests$Murder)) / sd(USArrests$Murder)
 
+
                                                                                                                                
