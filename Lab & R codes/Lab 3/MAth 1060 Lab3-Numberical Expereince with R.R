@@ -1,5 +1,4 @@
-# Coint toss: Probaility of getting heads
-
+# Coin toss: Probaility of getting heads
 n <- 1: 1000
 P<- rep(0, times=length(n))
 for(m in n){
@@ -7,4 +6,23 @@ for(m in n){
   P[m]<-sum(x)/m
 }
 plot(n,P)
+vector1 = P[length(n)]
 P[length(n)]
+
+
+
+# Dice: Probability of getting a 6
+n2 <- 1: 1000
+P2<- rep(0, times=length(n2))
+for(m in n2){
+  y<- sample(c(1,2,3,4,5,6),m,replace=TRUE)
+  P2[m]<-sum(y==6)/m
+}
+plot(n2,P2)
+vector2 = P2[length(n2)]
+P2[length(n2)]
+
+
+# Head and Dice: Probability of getting a 6 and Head
+vector1*vector2
+
