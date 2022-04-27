@@ -78,6 +78,7 @@ boxplot(x, horizontal = TRUE)
 
 # Find the left and right whisker for qsec
 View(mtcars)
+boxplot(x, horizontal = TRUE)
 View(mtcars$qsec)
 x=mtcars$qsec
 x=sort(x)
@@ -87,7 +88,6 @@ q3=median(x[17:32])
 i=q3-q1
 wl=q1-1.5*i
 wr=q3+1.5*i
-boxplot(x, horizontal = TRUE)
 
 # if you want to compare all the data in mtcars type
 boxplot(mtcars, horizontal=TRUE)
